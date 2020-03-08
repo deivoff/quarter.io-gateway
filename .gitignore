@@ -1,3 +1,6 @@
+# PM2 ecosystemfile
+ecosystem.config.js
+
 # Logs
 logs
 *.log
