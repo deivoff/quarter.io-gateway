@@ -14,7 +14,6 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "@hasezoey/typegoose": "^5.9.2",
     "@koa/cors": "^3.0.0",
     "@types/morgan": "^1.7.37",
     "apollo-server": "^2.9.14",
@@ -32,7 +31,10 @@
     "koa-logger": "^3.2.1",
     "lodash": "^4.17.15",
     "morgan": "^1.9.1",
+    "mysql2": "^2.1.0",
     "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.21.5",
+    "sequelize-typescript": "^1.1.0",
     "tslib": "^1.10.0",
     "type-graphql": "^0.17.5"
   },
