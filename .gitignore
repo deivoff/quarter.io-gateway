@@ -105,3 +105,9 @@ dist
 
 # IDE
 .idea
+
+# Build folder
+build
+
+# graphql
+schema.gql

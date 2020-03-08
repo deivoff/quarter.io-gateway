@@ -15,6 +15,7 @@ import { Field, ObjectType } from 'type-graphql';
 @Table
 export class User extends Model<User> {
   @PrimaryKey
+  @Field()
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)
   public id!: string;

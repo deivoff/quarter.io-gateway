@@ -8,7 +8,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { buildSchema } from 'type-graphql';
 import cors from '@koa/cors';
 import bodyParser from 'koa-bodyparser';
-import { User } from '$components/user';
+import { User, UserResolver } from '$components/user';
 import { AuthResolver } from '$components/auth';
 
 import { isAuth } from '$middleware/auth';
@@ -19,7 +19,10 @@ const config = process.env.NODE_ENV === 'development' && require('dotenv').confi
 export const createApp = async () => {
   const app = new Koa();
   const router = new KoaRouter();
-  const sequelize = new Sequelize("usersdb2", "root", "123456", {
+  const sequelize = new Sequelize(
+    process.env.DB_NAME!,
+    process.env.DB_USER!,
+    process.env.DB_PASSWORD!,{
     dialect: "mysql",
     models: [
       User
@@ -27,9 +30,12 @@ export const createApp = async () => {
     host: process.env.DB_URL || '',
   });
 
+  sequelize.sync();
+
   const schema = await buildSchema({
     resolvers: [
       AuthResolver,
+      UserResolver,
     ],
     emitSchemaFile: true,
     validate: false,
