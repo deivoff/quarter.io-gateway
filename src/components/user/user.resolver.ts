@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt';
 import { User } from '$components/user/user.model';
-import { Arg, Mutation, Resolver } from 'type-graphql';
+import { Arg, Mutation, Query, Resolver } from 'type-graphql';
 import { UserInput } from '.';
 
 @Resolver(of => User)
@@ -32,6 +32,15 @@ export class UserResolver {
       return (await user.save());
     } catch (err) {
       throw err;
+    }
+  }
+
+  @Query(returns => [User])
+  async getUsers(): Promise<User[]> {
+    try {
+      return await User.findAll();
+    } catch (error) {
+      throw error;
     }
   }
 }
