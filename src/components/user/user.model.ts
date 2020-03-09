@@ -25,15 +25,19 @@ export class User extends Model<User> {
   @Column
   public email!: string;
 
+  @Field()
   @Column
   public givenName!: string;
 
+  @Field()
   @Column
   public familyName!: string;
 
+  @Field()
   @Column
   public fatherName!: string;
 
+  @Field()
   @Column
   public password!: string;
 
